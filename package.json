@@ -1,0 +1,46 @@
+{
+  "name": "rxjs-animations",
+  "version": "0.1.0",
+  "description": "Framework-independent animations modeled as values and state transitions over time with RxJS 7.8.2 and TypeScript.",
+  "type": "module",
+  "sideEffects": false,
+  "files": ["dist"],
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "typecheck": "tsc -p tsconfig.json --noEmit",
+    "test": "vitest run",
+    "check": "npm run typecheck && npm test && npm run build"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/hansschenker/rxjs-animations.git"
+  },
+  "license": "MIT",
+  "keywords": [
+    "rxjs",
+    "rxjs-7",
+    "animation",
+    "animations",
+    "web-animations-api",
+    "typescript",
+    "functional-reactive-programming"
+  ],
+  "peerDependencies": {
+    "rxjs": "7.8.2"
+  },
+  "devDependencies": {
+    "rxjs": "7.8.2",
+    "typescript": "^5.8.3",
+    "vitest": "^3.2.4"
+  }
+}
