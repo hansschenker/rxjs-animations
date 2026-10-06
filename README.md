@@ -175,6 +175,8 @@ tests/
 
 docs/
   ARCHITECTURE.md
+  IMPLEMENTATION_PLAN.md
+  ANGULAR_COMPATIBILITY.md
   ROADMAP.md
 ```
 
@@ -193,9 +195,16 @@ The structure will grow only as later milestones require it.
 - Core descriptions and compiler functions remain class-free and side-effect free.
 - DOM effects remain at the driver boundary.
 
+## Documentation
+
+- [Architecture](docs/ARCHITECTURE.md)
+- [Implementation plan](docs/IMPLEMENTATION_PLAN.md)
+- [Angular compatibility matrix](docs/ANGULAR_COMPATIBILITY.md)
+- [Roadmap](docs/ROADMAP.md)
+
 ## Status
 
-**F00 complete once the repository passes `npm run check`.**
+**F00 — Structural Foundation: complete.** GitHub CI passes type checking, tests, and the production build.
 
 Next: **F01 — Composition Foundation**: `sequence`, `group`, and `keyframes`.
 
