@@ -2,7 +2,7 @@
 
 | Milestone | Topic | Status |
 | --- | --- | --- |
-| F00 | Structural foundation + `animate$()` WAAPI primitive | Implementing |
+| F00 | Structural foundation + `animate$()` WAAPI primitive | Complete |
 | F01 | `sequence`, `group`, `keyframes` | Planned |
 | F02 | `style`, `animate`, timing parser | Planned |
 | F03 | `state`, `transition`, transition aliases | Planned |
