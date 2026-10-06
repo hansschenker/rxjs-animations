@@ -8,10 +8,10 @@
 Animation Description
         |
         v
-   Pure Compiler
+Composition Tree
         |
         v
-Observable<AnimationPlan>
+Cold Runtime Interpreter
         |
         v
  RxJS Orchestration
@@ -80,9 +80,31 @@ Pure TypeScript values:
 
 No DOM mutation and no subscription occurs here.
 
-### 2. Compiler
+### 2. Composition and runtime interpretation
 
-Pure functions translate declarative animation descriptions into executable plans. Later milestones will compile sequence/group/state/transition descriptions without starting execution.
+F01 introduces a discriminated animation description tree:
+
+```text
+AnimationDescription
+  |
+  +-- plan
+  +-- sequence
+  +-- group
+```
+
+The tree is interpreted recursively by `runAnimation$()`:
+
+```text
+plan     -> animate$()
+sequence -> concat(children)
+group    -> merge(children)
+```
+
+This preserves serial/concurrent topology. Flattening the tree to `AnimationPlan[]` would lose that information.
+
+`runAnimation$()` remains cold: traversing the description does not start a browser animation; execution starts only when the returned Observable is subscribed.
+
+A future compiler may normalize richer descriptions such as states, transitions, timing strings, and queries, but its output must preserve this execution topology.
 
 ### 3. RxJS orchestration
 

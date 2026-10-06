@@ -420,6 +420,12 @@ The application supplies the relationship rather than an Angular renderer discov
 
 # F10 — AnimationFrames Driver
 
+### Reference
+
+Ben Lesh's `benlesh/rxjs-web-animation` is a useful semantic reference here. Its decomposition of frame source -> elapsed time -> normalized duration -> easing -> tween maps directly to this milestone. We will modernize that idea with RxJS 7.8.2 `animationFrames()`, injectable time sources, and explicit sharing rather than its custom global shared frame loop.
+
+See `REFERENCES.md`.
+
 ### Purpose
 
 Remove the assumption that animation means DOM + WAAPI.

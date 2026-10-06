@@ -200,6 +200,7 @@ The structure will grow only as later milestones require it.
 - [Architecture](docs/ARCHITECTURE.md)
 - [Implementation plan](docs/IMPLEMENTATION_PLAN.md)
 - [Angular compatibility matrix](docs/ANGULAR_COMPATIBILITY.md)
+- [Design references](docs/REFERENCES.md)
 - [Roadmap](docs/ROADMAP.md)
 
 ## Status

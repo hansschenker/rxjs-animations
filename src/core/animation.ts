@@ -1,9 +1,25 @@
 export type AnimationKeyframes = Keyframe[];
 
 export interface AnimationPlan {
+  readonly kind: 'plan';
   readonly keyframes: AnimationKeyframes;
   readonly options: KeyframeAnimationOptions;
 }
+
+export interface AnimationSequence {
+  readonly kind: 'sequence';
+  readonly steps: readonly AnimationDescription[];
+}
+
+export interface AnimationGroup {
+  readonly kind: 'group';
+  readonly steps: readonly AnimationDescription[];
+}
+
+export type AnimationDescription =
+  | AnimationPlan
+  | AnimationSequence
+  | AnimationGroup;
 
 export type AnimationLifecycleEvent =
   | AnimationStartEvent
@@ -32,10 +48,28 @@ export interface AnimatableElement {
   ): Animation;
 }
 
+export const keyframes = (frames: readonly Keyframe[]): AnimationKeyframes =>
+  frames.map((frame) => ({ ...frame }));
+
 export const animationPlan = (
-  keyframes: AnimationKeyframes,
+  frames: AnimationKeyframes,
   options: KeyframeAnimationOptions = {},
 ): AnimationPlan => ({
-  keyframes,
+  kind: 'plan',
+  keyframes: frames,
   options,
+});
+
+export const sequence = (
+  steps: readonly AnimationDescription[],
+): AnimationSequence => ({
+  kind: 'sequence',
+  steps: [...steps],
+});
+
+export const group = (
+  steps: readonly AnimationDescription[],
+): AnimationGroup => ({
+  kind: 'group',
+  steps: [...steps],
 });
